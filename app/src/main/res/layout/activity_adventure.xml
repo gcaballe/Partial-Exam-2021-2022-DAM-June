@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="dam.gtidic.examenfinal2122.usecases.adventure.AdventureViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/rocket"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".usecases.adventure.AdventureActivity">
+
+        <Button
+            android:id="@+id/mathAdventureButton"
+            android:layout_width="48dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="#8BC34A"
+            android:onClick="showMathAdventure"
+            android:text="@string/_1"
+            android:textColor="#37474F"
+            app:cornerRadius="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/mathAdventureLogo"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/stringAdventure"
+            android:layout_width="48dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="#FF5722"
+            android:onClick="showStringGame"
+            android:text="@string/a"
+            android:visibility="invisible"
+            app:cornerRadius="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/stringAdventureLogo"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageButton
+            android:id="@+id/purchaseLivesButton"
+            android:layout_width="61dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#E91E63"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_foreground"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/livesTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/qa_vides"
+            android:textAlignment="center"
+            android:textColor="#5D4037"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/purchaseLivesButton"
+            app:layout_constraintStart_toStartOf="@+id/purchaseLivesButton"
+            app:layout_constraintTop_toBottomOf="@+id/purchaseLivesButton" />
+
+        <ImageView
+            android:id="@+id/mathAdventureLogo"
+            android:layout_width="143dp"
+            android:layout_height="198dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="36dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/math"
+            android:contentDescription="@string/todo" />
+
+        <ImageView
+            android:id="@+id/stringAdventureLogo"
+            android:layout_width="165dp"
+            android:layout_height="179dp"
+            android:layout_marginBottom="52dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/words"
+            android:contentDescription="@string/todo" />
+
+        <ImageButton
+            android:id="@+id/purchaseLivesBt"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="132dp"
+            android:layout_marginTop="112dp"
+            android:background="#9AC5CA"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/btn_star"
+            app:tint="#F89F00"
+            tools:ignore="ImageContrastCheck" />
+        <!--- QA: android:onClick="purchaseALive"-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
