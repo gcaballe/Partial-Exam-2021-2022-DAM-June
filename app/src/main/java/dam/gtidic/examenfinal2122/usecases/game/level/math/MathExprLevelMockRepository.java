@@ -36,7 +36,7 @@ public class MathExprLevelMockRepository implements LevelRepository {
 
     @Override
     public int getSize() {
-        return expressions.length - 1;
+        return expressions.length;
     }
 
 }
