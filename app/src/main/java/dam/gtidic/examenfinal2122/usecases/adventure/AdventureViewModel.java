@@ -5,6 +5,9 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import java.util.Date;
+
+import dam.gtidic.examenfinal2122.CalendarUtils;
 import dam.gtidic.examenfinal2122.utils.PreferencesProvider;
 
 public class AdventureViewModel extends ViewModel {
@@ -19,12 +22,34 @@ public class AdventureViewModel extends ViewModel {
         this.livesLiveData = new MutableLiveData<>();
         this.isAdventureEnabled = new MutableLiveData<>();
 
+        checkNewLifesPerDay();
+
+
         //fix per que s'ensenyi també que vides = 0
         int lives = PreferencesProvider.providePreferences().getInt("lives", 0);
+
         livesLiveData.postValue(String.valueOf(lives) + " vides");
 
         if(lives == 0) isAdventureEnabled.postValue(false);
 
+    }
+
+    private void checkNewLifesPerDay() {
+
+        long millis = System.currentTimeMillis();
+        Date ara = new Date(millis);
+
+        long lastO = PreferencesProvider.providePreferences().getLong("lastOnline", 0);
+        Date lastDate = new Date(lastO);
+
+        if(!CalendarUtils.isSameDay(ara, lastDate)){
+            PreferencesProvider.providePreferences().edit().putInt("lives",
+                    3).commit();
+        }
+
+        //Guardo el lastOnline time
+        PreferencesProvider.providePreferences().edit().putLong("lastOnline",
+                millis).commit();
     }
 
     //4. Infinite lives (2 points)
