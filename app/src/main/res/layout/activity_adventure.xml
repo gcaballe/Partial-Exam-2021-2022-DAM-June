@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         tools:context=".usecases.adventure.AdventureActivity">
 
-        <!-- @{() -> viewModel.showMathAdventure()}-->
+
         <Button
             android:id="@+id/mathAdventureButton"
             android:layout_width="48dp"
@@ -60,11 +60,12 @@
             app:srcCompat="@drawable/ic_launcher_foreground"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
+        <!-- android:text="@string/qa_vides" -->
         <TextView
             android:id="@+id/livesTv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/qa_vides"
+            android:text="@={viewModel.livesLiveData}"
             android:textAlignment="center"
             android:textColor="#5D4037"
             android:textSize="14sp"
@@ -97,6 +98,7 @@
 
         <ImageButton
             android:id="@+id/purchaseLivesBt"
+            android:onClick="@{() -> viewModel.onClickPurchaseLivesBt()}"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginStart="132dp"
