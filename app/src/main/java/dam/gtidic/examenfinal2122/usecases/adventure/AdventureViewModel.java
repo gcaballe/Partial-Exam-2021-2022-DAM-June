@@ -1,29 +1,29 @@
 package dam.gtidic.examenfinal2122.usecases.adventure;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.util.Log;
-import android.view.View;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import dam.gtidic.examenfinal2122.usecases.game.math.GameActivityMath;
 import dam.gtidic.examenfinal2122.utils.PreferencesProvider;
 
 public class AdventureViewModel extends ViewModel {
 
     public MutableLiveData<String> livesLiveData;
 
+
+
+    public MutableLiveData<Boolean> isAdventureEnabled;
+
     public AdventureViewModel(){
         this.livesLiveData = new MutableLiveData<>();
+        this.isAdventureEnabled = new MutableLiveData<>();
 
         //fix per que s'ensenyi també que vides = 0
         int lives = PreferencesProvider.providePreferences().getInt("lives", 0);
         livesLiveData.postValue(String.valueOf(lives) + " vides");
+
+        if(lives == 0) isAdventureEnabled.postValue(false);
 
     }
 
@@ -42,9 +42,18 @@ public class AdventureViewModel extends ViewModel {
         //Intent intent = new Intent(userActivity, GameActivityMath.class);
         //userActivity.startActivity(intent);
         livesLiveData.postValue(String.valueOf(lives) + " vides");
+
+        if(lives != 0) isAdventureEnabled.postValue(true);
     }
 
+    /* ho poso així per testejar
+    public boolean comprobarEnabled(){
+        //String lives = livesLiveData.getValue();
+        int lives = PreferencesProvider.providePreferences().getInt("lives", 0);
 
+        Log.d("AdventureViewModel", "les vides són " + lives);
+        return !(lives == 25); //!lives.equals("25 vides");
+    }*/
 
     //getters i setters
 
@@ -54,5 +63,13 @@ public class AdventureViewModel extends ViewModel {
 
     public void setLivesLiveData(MutableLiveData<String> livesLiveData) {
         this.livesLiveData = livesLiveData;
+    }
+
+    public MutableLiveData<Boolean> getIsAdventureEnabled() {
+        return isAdventureEnabled;
+    }
+
+    public void setIsAdventureEnabled(MutableLiveData<Boolean> isAdventureEnabled) {
+        this.isAdventureEnabled = isAdventureEnabled;
     }
 }

@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="dam.gtidic.examenfinal2122.usecases.adventure.AdventureViewModel" />
         <import type="android.view.View" />
         <variable
             name="viewModel"
@@ -17,9 +18,13 @@
         android:layout_height="match_parent"
         tools:context=".usecases.adventure.AdventureActivity">
 
-
+        <!-- android:enabled="{!(viewModel.comprobarEnabled(viewModel.livesLiveData))}"
+                    android:enabled="@{!(viewModel.livesLiveData.equals('25 vides')) }"
+                    @{ viewModel.comprobarEnabled()}
+        -->
         <Button
             android:id="@+id/mathAdventureButton"
+            android:enabled="@{viewModel.isAdventureEnabled}"
             android:layout_width="48dp"
             android:layout_height="60dp"
             android:layout_marginStart="60dp"
