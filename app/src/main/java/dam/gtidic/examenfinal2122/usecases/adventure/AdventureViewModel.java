@@ -71,6 +71,16 @@ public class AdventureViewModel extends ViewModel {
         if(lives != 0) isAdventureEnabled.postValue(true);
     }
 
+
+    //7. Resetting the game play (0.5 points)
+    public void onClickResetLivesBt(){
+
+        boolean result = PreferencesProvider.providePreferences().edit().putInt("current_level",
+                0).commit();
+
+        Log.d("AdventureViewModel", "Sha fet correctament el apply(). result = " + result);
+    }
+
     /* ho poso així per testejar
     public boolean comprobarEnabled(){
         //String lives = livesLiveData.getValue();

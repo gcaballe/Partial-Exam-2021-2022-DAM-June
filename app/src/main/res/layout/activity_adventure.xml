@@ -39,6 +39,21 @@
             tools:ignore="TextContrastCheck" />
 
         <Button
+            android:id="@+id/resetLivesButton"
+            android:layout_width="48dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="316dp"
+            android:layout_marginBottom="44dp"
+            android:backgroundTint="#EA1010"
+            android:onClick="@{() -> viewModel.onClickResetLivesBt()}"
+            android:text="@string/_1"
+            android:textColor="#37474F"
+            app:cornerRadius="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/mathAdventureLogo"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
             android:id="@+id/stringAdventure"
             android:layout_width="48dp"
             android:layout_height="60dp"
