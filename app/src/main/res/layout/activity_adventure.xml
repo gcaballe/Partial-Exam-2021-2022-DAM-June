@@ -17,6 +17,7 @@
         android:layout_height="match_parent"
         tools:context=".usecases.adventure.AdventureActivity">
 
+        <!-- @{() -> viewModel.showMathAdventure()}-->
         <Button
             android:id="@+id/mathAdventureButton"
             android:layout_width="48dp"

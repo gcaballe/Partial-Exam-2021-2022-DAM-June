@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,7 +35,6 @@ public class AdventureActivity extends AppCompatActivity {
         binding.setViewModel(viewModel);
         binding.setLifecycleOwner(this);
 
-
         this.getOnBackPressedDispatcher()
                 .addCallback(this, new OnBackPressedCallback(true) {
             @Override
@@ -48,9 +48,11 @@ public class AdventureActivity extends AppCompatActivity {
         Log.d(this.getClass().getSimpleName(),"...data() ");
     }
 
-    private void showMathAdventure(View view){
+    // 3. Correcting bugs (2 points) FALTAVA POSAR PUBLIC
+    public void showMathAdventure(View view){
             startActivity( new Intent(this, GameActivityMath.class));
     }
+
 
 
     private void close(){
